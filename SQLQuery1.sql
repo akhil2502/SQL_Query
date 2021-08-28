@@ -53,3 +53,77 @@ group by gender
 
 select count(salary),gender from employee_payroll
 group by gender
+
+alter table employee_payroll
+add phonenumber varchar(20)
+go
+
+
+update  employee_payroll
+set phonenumber = '9999999999'
+where num=1
+
+update  employee_payroll
+set phonenumber = '9988999999'
+where num=2
+
+update  employee_payroll
+set phonenumber = '9999997799'
+where num=3
+
+update  employee_payroll
+set phonenumber = '6699999999'
+where num=4
+
+update  employee_payroll
+set phonenumber = '9999999999'
+where num=5
+
+alter table employee_payroll
+drop column address
+
+alter table employee_payroll
+add  address varchar(20)
+
+update  employee_payroll
+set address = 'mumbai'
+
+alter table employee_payroll
+add department varchar(20)
+
+update  employee_payroll
+set department = 'mech'
+where num=1
+
+update  employee_payroll
+set department = 'ce'
+where num=2
+
+update  employee_payroll
+set department = 'ece'
+where num=3
+
+update  employee_payroll
+set department = 'ca'
+where num=4 or num=5
+
+create table employee_pay1(
+basic_pay int ,
+deductions_pay int,
+taxable_pay int,
+incometax int,
+net_pay int
+)
+alter table employee_pay1
+add num int
+
+insert  into  employee_pay1 values (25000,900,1000,2000,45000,1)
+insert  into  employee_pay1 values (27000,700,2000,2000,48000,2)
+insert  into  employee_pay1 values (25000,900,1000,2000,40000,3)
+insert  into  employee_pay1 values (20000,800,1000,2000,40000,4)
+insert  into  employee_pay1 values (30000,1000,3000,2000,48000,5)
+select * from employee_pay1
+select * from employee_payroll
+
+select * from employee_payroll join employee_pay1 
+on employee_payroll.num = employee_pay1.num
